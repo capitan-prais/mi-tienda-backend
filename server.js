@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 const comercio = {
   commerceCode: '597055555532',  // Ejemplo, este lo proporciona Webpay
   apiKey: 'd857be20-cdd7-430b-b86e-6ba7f0fb2f0b',  // Tu clave de API de Webpay
-  urlWebpay: 'https://webpayplus.endpoint'  // URL proporcionada por Webpay
+  urlWebpay: 'https://webpay3gint.transbank.cl/rswebpaytransaction/api/webpayplus/v1',  // URL proporcionada por Webpay
 };
 
 app.post('/crear-transaccion', async (req, res) => {
@@ -30,7 +30,7 @@ app.post('/crear-transaccion', async (req, res) => {
       buy_order: 'order_' + new Date().getTime(), // Un identificador único de la compra
       session_id: pedido.cliente.email, // El email del cliente es único
       amount: pedido.total, // Monto total de la compra
-      return_url: 'http://tusitio.com/confirmar-pago', // La URL donde Webpay enviará el estado del pago
+      rreturn_url: 'https://mi-tienda-backend-ddiw.onrender.com/confirmar-pago', // La URL donde Webpay enviará el estado del pago
     };
 
     // Hacer la solicitud a Webpay para crear la transacción
